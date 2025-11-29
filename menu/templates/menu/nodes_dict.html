@@ -1,0 +1,27 @@
+{% if nodes_dict %}
+    <ul>
+    {% for key, value_list in nodes_dict.items %}
+        <li>
+            <strong>{% if key %}Node {{ key }}{% else %}Top level{% endif %}</strong>
+            <ul>
+                {% for item in value_list %}
+                {# parent-info objects have no "id" key; child objects have "id" #}
+                {% if item.id %}
+                    <li>
+                    {{ item.label }} — <a href="{{ item.path }}">{{ item.path }}</a>
+                    <small>(id: {{ item.id }})</small>
+                    </li>
+                {% else %}
+                    <li><em>
+                        parent_id: {{ item.parent_id|default:"None" }}, 
+                        <a href="{{ item.parent_path }}">parent_path: {{ item.parent_path }}</a>
+                    </em></li>
+                {% endif %}
+                {% endfor %}
+            </ul>
+        </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No nodes are available.</p>
+{% endif %}

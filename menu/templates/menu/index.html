@@ -1,0 +1,9 @@
+{% if all_nodes %}
+    <ul>
+    {% for node in all_nodes %}
+        <li>{{ node.id }} | {{ node.label }} | {{ node.parent }} | {{ node.path }}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No nodes are available.</p>
+{% endif %}
