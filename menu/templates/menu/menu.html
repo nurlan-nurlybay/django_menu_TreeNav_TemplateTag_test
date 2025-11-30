@@ -1,0 +1,19 @@
+{% load menu_tags %}
+
+{% with nodes=children_map|get_item:parent_id %}
+{% if nodes %}
+<ul class="menu-level">
+    {% for node in nodes %}
+    <li>
+        <a href="{{ node.get_absolute_url }}" class="{% if node.id == active_id %}active{% endif %}">
+            {{ node.label }}
+        </a>
+
+        {% if node.id in expanded_ids %}
+        {% include "menu/menu.html" with parent_id=node.id %}
+        {% endif %}
+    </li>
+    {% endfor %}
+</ul>
+{% endif %}
+{% endwith %}

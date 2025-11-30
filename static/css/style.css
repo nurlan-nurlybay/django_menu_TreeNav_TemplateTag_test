@@ -1,0 +1,41 @@
+body { font-family: sans-serif; margin: 0; display: flex; height: 100vh; }
+
+/* Sidebar Styling */
+aside {
+    width: 300px;
+    background: #f8f9fa;
+    border-right: 1px solid #ddd;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+/* Main Content Styling */
+main {
+    flex-grow: 1;
+    padding: 40px;
+}
+
+/* Menu Styles (Basic) */
+ul.menu-level { list-style: none; padding-left: 20px; }
+ul.menu-level li { margin: 5px 0; }
+a { text-decoration: none; color: #333; }
+a:hover { color: #007bff; }
+
+/* The Active Class (Applied by your tag) */
+a.active { 
+    font-weight: bold; 
+    color: #d63384; /* Pink/Red highlight */
+}
+
+/* Index Page Styles */
+.path-display {
+    background: #eee; 
+    padding: 15px; 
+    border-radius: 5px; 
+    font-family: monospace;
+}
+
+.instruction-text {
+    margin-top: 20px; 
+    color: #666;
+}

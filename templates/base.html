@@ -1,0 +1,25 @@
+{% load menu_tags static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Tree Menu Test</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+    <aside>
+        <h3>Main Menu</h3>
+        <hr>
+        {% draw_menu 'main_menu' %}
+    </aside>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+</body>
+
+</html>
