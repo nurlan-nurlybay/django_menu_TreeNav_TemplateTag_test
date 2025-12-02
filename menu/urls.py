@@ -3,5 +3,5 @@ from . import views
 
 urlpatterns = [
     path('', views.IndexView.as_view(), name='index'),
-    re_path(r'^.*$', views.IndexView.as_view(), name='catch_all'),
+    re_path(r'^(?!admin|static).*$', views.IndexView.as_view(), name='catch_all'),
 ]

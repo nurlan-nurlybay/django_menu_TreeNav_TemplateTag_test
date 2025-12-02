@@ -15,7 +15,7 @@ def draw_menu(context, menu_name):
         if node.get_absolute_url() == current_path:
             active_id = node_id
             break
-
+    
     expanded_ids = set()
     if active_id:
         current_id = active_id
@@ -23,15 +23,15 @@ def draw_menu(context, menu_name):
             expanded_ids.add(current_id)
             node = metadata.get(current_id)
             current_id = node.parent_id if node else None
-
+    
     top_level_nodes = children.get(None, [])
     start_parent_id = None
     
     if len(top_level_nodes) == 1:
         root_node = top_level_nodes[0]
         start_parent_id = root_node.id
-        expanded_ids.add(root_node.id)
-
+        # expanded_ids.add(root_node.id) 
+    
     return {
         'children_map': children,
         'expanded_ids': expanded_ids,
